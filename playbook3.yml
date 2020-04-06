@@ -1,0 +1,17 @@
+---
+- name: Upload page
+  hosts: all
+  become: yes
+
+  vars:
+    src_file: ./index.html
+    dest_file: /var/www/html
+
+  tasks:
+  - name: Copy page
+    copy: src={{ src_file}} dest={{ dest_file }} mode=0555
+    notify: Restart
+
+  handlers:
+  - name: Restart
+    service: name=httpd state=restarted

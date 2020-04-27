@@ -1,0 +1,12 @@
+---
+- name: Loop
+  hosts: host3
+  become: yes
+
+  tasks:
+  - name: Hello
+    debug: msg="Hello {{ item }}"
+    loop:
+       - "One"
+       - "Two"
+       - "Three"

@@ -1,0 +1,3 @@
+---
+# defaults file for Apache_install
+dest_file: /var/www/html

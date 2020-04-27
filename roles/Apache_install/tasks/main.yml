@@ -1,0 +1,32 @@
+---
+# tasks file for Apache_install
+- name: Include test
+  include: temp_test.yml
+
+- block:
+
+      - name: Install Amazon Linux
+        yum: name=httpd state=latest
+
+      - name: Copy page
+        copy: src=index.html dest={{ dest_file }} mode=0555
+        notify: Restart Amazon
+
+      - name: Enable Amazon Linux
+        service: name=httpd state=started enabled=yes
+
+  when: ansible_pkg_mgr == "yum"
+
+- block:
+
+      - name: Install Ubuntu
+        apt: name=apache2 state=latest
+
+      - name: Copy page
+        copy: src=index.html dest={{ dest_file }} mode=0555
+        notify: Restart Ubuntu
+
+      - name: Enable Ubuntu
+        service: name=apache2 state=started enabled=yes
+
+  when: ansible_pkg_mgr == "apt"

@@ -1,0 +1,4 @@
+[servers]
+host1 ansible_host=54.237.107.216
+host2 ansible_hos
+host3 ansible_host=100.26.241.229 ansible_user=ubuntu

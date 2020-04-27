@@ -1,0 +1,7 @@
+---
+- name: Upload page
+  hosts: "{{ HOST }}"
+  become: yes
+
+  roles:
+   - Apache_install

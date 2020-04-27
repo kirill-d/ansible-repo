@@ -1,0 +1,7 @@
+---
+# handlers file for Apache_install
+- name: Restart Amazon
+  service: name=httpd state=restarted
+
+- name: Restart Ubuntu
+  service: name=apache2 state=restarted

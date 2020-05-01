@@ -1,0 +1,19 @@
+---
+- name: Reset my servers
+  hosts: all
+  become: yes
+
+  tasks:
+
+  - name: Reboot command
+    shell: sleep 3 && reboot now
+    async: 1
+    poll: 0
+
+  - name: Waiting
+    wait_for:
+      host: all
+      state: started
+      delay: 5
+      timeout: 40
+    delegate_to: localhost

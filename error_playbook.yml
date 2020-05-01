@@ -1,0 +1,21 @@
+---
+- name: Error handing
+  hosts: amazon_linux
+  become: yes
+
+  tasks:
+   - name: Install trash
+     yum: name=trashcanbin state=latest
+     ignore_errors: yes
+ 
+   - name: Task 1
+     shell: echo "Epic fail!"
+     register: results
+     failed_when: "'fail' in results.stdout"
+
+   - debug:
+       var: results
+
+   - name: Task 2
+     shell: echo "Hello from Task 2"
+

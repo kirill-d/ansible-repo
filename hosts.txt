@@ -1,4 +1,8 @@
 [servers]
-host1 ansible_host=54.237.107.216
-host2 ansible_host=34.224.3.120
-host3 ansible_host=107.23.93.137 ansible_user=ubuntu
+host1 ansible_host=54.174.6.65
+host2 ansible_host=18.204.9.116
+host3 ansible_host=3.90.83.106 ansible_user=ubuntu
+
+[amazon_linux]
+host1
+host2
